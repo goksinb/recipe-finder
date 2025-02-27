@@ -1,7 +1,7 @@
 import {useState, useEffect} from "react";
 import getRecipes from "../components/getRecipes";
 import {Link} from "react-router-dom";
-import "../styles/homepage.css";
+import "../styles/Homepage.css";
 
 function Homepage() {
   const [recipes, setRecipes] = useState([]);
