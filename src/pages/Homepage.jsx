@@ -52,7 +52,7 @@ function Homepage() {
       <ul>
         {recipes.length > 0 ? (
           recipes.map((recipe) => (
-            <li key={recipe.id} style={{marginBottom: "20px"}}>
+            <p key={recipe.id} style={{marginBottom: "20px"}}>
               <Link to={`/recipe/${recipe.id}`}>
                 <h3>{recipe.title}</h3>
               </Link>
@@ -61,10 +61,10 @@ function Homepage() {
                 alt={recipe.title}
                 style={{width: "150px"}}
               />
-            </li>
+            </p>
           ))
         ) : (
-          <li>No recipes found.</li>
+          <p>No recipes found.</p>
         )}
       </ul>
     </div>
