@@ -14,6 +14,8 @@ function RecipeDetails() {
     fetchRecipe();
   }, [id]);
 
+  console.log("Recipe:", recipe); // Debug log
+
   if (!recipe) return <p>Loading...</p>;
 
   return (
