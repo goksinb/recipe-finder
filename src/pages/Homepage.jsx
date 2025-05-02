@@ -1,5 +1,5 @@
 import {useState, useEffect} from "react";
-import getRecipes from "../components/getRecipes";
+import getRecipes from "../API/getRecipes";
 import {Link} from "react-router-dom";
 import "../styles/Homepage.css";
 
