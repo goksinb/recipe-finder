@@ -1,7 +1,8 @@
 import {useEffect, useState} from "react";
 import {useParams} from "react-router-dom";
-import getRecipeDetails from "../components/getRecipeDetails";
+import getRecipeDetails from "../API/getRecipeDetails";
 import "../styles/recipedetails.css";
+import {Link} from "react-router-dom";
 
 function RecipeDetails() {
   const {id} = useParams();
@@ -24,19 +25,28 @@ function RecipeDetails() {
 
   return (
     <div id="main-container">
+      <header>
+        <nav>
+          <h1>Recipe Finder</h1>
+          <Link to="/">Homepage</Link>
+        </nav>
+      </header>
       <h1 id="recipe-title">{recipe.title}</h1>
-      <div id="recipe-image">
-        <img src={recipe.image} alt={recipe.title} />
+      <div className="recipe-container">
+        <div id="recipe-image">
+          <img src={recipe.image} alt={recipe.title} />
+        </div>
+        <div id="recipe-ingredients">
+          <h2>Ingredients</h2>
+          <ul>
+            {recipe.extendedIngredients.map((ingredient, index) => (
+              <li key={index}>{ingredient.original}</li>
+            ))}
+          </ul>
+        </div>
       </div>
       <p dangerouslySetInnerHTML={{__html: recipe.summary}}></p>
-      <div id="recipe-ingredients">
-        <h2>Ingredients</h2>
-        <ul>
-          {recipe.extendedIngredients.map((ingredient, index) => (
-            <li key={index}>{ingredient.original}</li>
-          ))}
-        </ul>
-      </div>
+
       <div id="recipe-instructions">
         <h2>Instructions</h2>
         <ul>
