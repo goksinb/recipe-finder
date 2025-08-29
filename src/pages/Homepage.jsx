@@ -2,6 +2,8 @@ import {useState, useEffect} from "react";
 import getRecipes from "../API/getRecipes";
 import {Link} from "react-router-dom";
 import "../styles/Homepage.css";
+import Header from "../components/header";
+import Footer from "../components/footer";
 
 function Homepage() {
   const [recipes, setRecipes] = useState([]);
@@ -41,11 +43,9 @@ function Homepage() {
 
   return (
     <div>
-      <header>
-        <nav>
-          <h1>Recipe Finder</h1>
-        </nav>
-      </header>
+      <Header />
+      {/*       <Footer /> */}
+
       <main>
         <form onSubmit={handleSearch}>
           <input
@@ -56,25 +56,29 @@ function Homepage() {
           <button type="submit">Search</button>
         </form>
         <div className="recipes">
-          <ul>
-            <h1>Recipes with {searchTerm}</h1>
-            {recipes.length > 0 ? (
-              recipes.map((recipe) => (
-                <div className="recipe" key={recipe.id}>
-                  <Link to={`/recipe/${recipe.id}`}>
-                    <h3>{recipe.title}</h3>
-                  </Link>
-                  <img
-                    src={recipe.image}
-                    alt={recipe.title}
-                    style={{width: "150px"}}
-                  />
-                </div>
-              ))
-            ) : (
-              <p>No recipes found.</p>
-            )}
-          </ul>
+          {!searchTerm ? ( // if nothing is searched
+            <p>Type some ingredients above to find recipes 🍲</p>
+          ) : (
+            <>
+              <h1>Recipes with {searchTerm}</h1>
+              {recipes.length > 0 ? (
+                recipes.map((recipe) => (
+                  <div className="recipe" key={recipe.id}>
+                    <Link to={`/recipe/${recipe.id}`}>
+                      <h3>{recipe.title}</h3>
+                    </Link>
+                    <img
+                      src={recipe.image}
+                      alt={recipe.title}
+                      style={{width: "150px"}}
+                    />
+                  </div>
+                ))
+              ) : (
+                <p>No recipes found.</p>
+              )}
+            </>
+          )}
         </div>
       </main>
     </div>

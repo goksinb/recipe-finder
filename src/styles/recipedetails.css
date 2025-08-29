@@ -1,8 +1,8 @@
 #main-container {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  margin: 0 15rem;
+  margin: 0 auto;
+  height: 100vh;
 }
 
 #recipe-image img {
@@ -10,6 +10,15 @@
   width: 300px;
 }
 
+.recipe {
+  display: flex;
+  flex-direction: column;
+  margin: 4rem 25rem;
+  border: 2px solid black;
+  padding: 1rem 3rem;
+}
+
 .recipe-container {
   display: flex;
+  flex-direction: column;
 }

@@ -8,9 +8,14 @@ body {
 header {
   display: flex;
   flex-direction: column;
-  background-color: brown;
+  background-color: rgb(252, 172, 0);
   padding: 10px 20px;
-  color: whitesmoke;
+  color: rgb(26, 26, 26);
+
+  a {
+    color: rgb(26, 26, 26);
+    text-decoration: none;
+  }
 }
 
 main {
@@ -22,17 +27,23 @@ main {
 
 form {
   display: flex;
+  width: 30rem;
   justify-content: center;
   align-items: center;
+  input {
+    border-radius: 8px;
+  }
 }
 
 form button {
   padding: 10px;
   margin: 10px;
   border: none;
-  background-color: brown;
+  width: 10rem;
+  background-color: rgb(252, 172, 0);
   color: whitesmoke;
   cursor: pointer;
+  border-radius: 8px;
 }
 
 main input {
