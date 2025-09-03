@@ -22,7 +22,7 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 20px;
+  height: 100vh;
 }
 
 form {
@@ -30,8 +30,10 @@ form {
   width: 30rem;
   justify-content: center;
   align-items: center;
+
   input {
     border-radius: 8px;
+    margin: 0;
   }
 }
 
@@ -51,4 +53,30 @@ main input {
   padding: 10px;
   margin: 10px 0;
   border: 1px solid #ccc;
+}
+
+img {
+  border-radius: 5px;
+  width: 250px;
+  height: 200px;
+  object-fit: cover;
+}
+
+.randomRecipes {
+  display: flex;
+  flex-wrap: wrap;
+  color: rgb(26, 26, 26);
+  margin-top: 2rem;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.featuredRecipe {
+  display: flex;
+  align-self: self-start;
+  img {
+    width: 450px;
+    height: 400px;
+  }
 }
