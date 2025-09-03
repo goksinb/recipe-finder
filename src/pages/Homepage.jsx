@@ -51,7 +51,7 @@ function Homepage() {
           <input
             type="text"
             name="search"
-            placeholder="Enter ingredients (e.g., chicken, zucchini)"
+            placeholder="Enter ingredients (e.g. chicken, zucchini)"
           />
           <button type="submit">Search</button>
         </form>
@@ -79,6 +79,44 @@ function Homepage() {
               )}
             </>
           )}
+        </div>
+
+        <div className="randomRecipes">
+          <div className="homepageRecipe">
+            <h2>Stuffed Bell Peppers</h2>
+            <img src="public/images/Stuffed-Bell-Peppers-V2.jpg" alt="" />
+          </div>
+          <div className="homepageRecipe">
+            <h2>Beef Stroganoff</h2>
+            <img
+              src="public/images/One-Pot-Beef-and-Mushroom-Stroganoff-V1.jpg"
+              alt=""
+            />
+          </div>
+          <div className="homepageRecipe">
+            <h2>Easy Taco Soup</h2>
+            <img src="public/images/Taco-Soup-V2.jpg" alt="" />
+          </div>
+          <div className="homepageRecipe">
+            <h2>Stuffed Bell Peppers</h2>
+            <img src="public/images/Stuffed-Bell-Peppers-V2.jpg" alt="" />
+          </div>
+          <div className="homepageRecipe">
+            <h2>Stuffed Bell Peppers</h2>
+            <img src="public/images/Stuffed-Bell-Peppers-V2.jpg" alt="" />
+          </div>
+          <div className="homepageRecipe">
+            <h2>Stuffed Bell Peppers</h2>
+            <img src="public/images/Stuffed-Bell-Peppers-V2.jpg" alt="" />
+          </div>
+          <div className="homepageRecipe">
+            <h2>Stuffed Bell Peppers</h2>
+            <img src="public/images/Stuffed-Bell-Peppers-V2.jpg" alt="" />
+          </div>
+          <div className="homepageRecipe">
+            <h2>Stuffed Bell Peppers</h2>
+            <img src="public/images/Stuffed-Bell-Peppers-V2.jpg" alt="" />
+          </div>
         </div>
       </main>
     </div>
