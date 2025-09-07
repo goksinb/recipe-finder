@@ -3,7 +3,7 @@ import getRecipes from "../API/getRecipes";
 import {Link} from "react-router-dom";
 import "../styles/Homepage.css";
 import Header from "../components/header";
-import Footer from "../components/footer";
+/* import Footer from "../components/footer"; */
 
 function Homepage() {
   const [recipes, setRecipes] = useState([]);
@@ -55,15 +55,37 @@ function Homepage() {
           />
           <button type="submit">Search</button>
         </form>
+
         <div className="recipes">
           {!searchTerm ? ( // if nothing is searched
-            <p>Type some ingredients above to find recipes 🍲</p>
+            <>
+              <p>Type some ingredients above to find recipes 🍲</p>
+
+              {/* Show random recipes only when no search */}
+              <div className="randomRecipes">
+                <div className="homepageRecipe">
+                  <h2>Stuffed Bell Peppers</h2>
+                  <img src="public/images/Stuffed-Bell-Peppers-V2.jpg" alt="" />
+                </div>
+                <div className="homepageRecipe">
+                  <h2>Beef Stroganoff</h2>
+                  <img
+                    src="public/images/One-Pot-Beef-and-Mushroom-Stroganoff-V1.jpg"
+                    alt=""
+                  />
+                </div>
+                <div className="homepageRecipe">
+                  <h2>Easy Taco Soup</h2>
+                  <img src="public/images/Taco-Soup-V2.jpg" alt="" />
+                </div>
+              </div>
+            </>
           ) : (
             <>
               <h1>Recipes with {searchTerm}</h1>
               {recipes.length > 0 ? (
                 recipes.map((recipe) => (
-                  <div className="recipe" key={recipe.id}>
+                  <div className="recipeList" key={recipe.id}>
                     <Link to={`/recipe/${recipe.id}`}>
                       <h3>{recipe.title}</h3>
                     </Link>
@@ -79,44 +101,6 @@ function Homepage() {
               )}
             </>
           )}
-        </div>
-
-        <div className="randomRecipes">
-          <div className="homepageRecipe">
-            <h2>Stuffed Bell Peppers</h2>
-            <img src="public/images/Stuffed-Bell-Peppers-V2.jpg" alt="" />
-          </div>
-          <div className="homepageRecipe">
-            <h2>Beef Stroganoff</h2>
-            <img
-              src="public/images/One-Pot-Beef-and-Mushroom-Stroganoff-V1.jpg"
-              alt=""
-            />
-          </div>
-          <div className="homepageRecipe">
-            <h2>Easy Taco Soup</h2>
-            <img src="public/images/Taco-Soup-V2.jpg" alt="" />
-          </div>
-          <div className="homepageRecipe">
-            <h2>Stuffed Bell Peppers</h2>
-            <img src="public/images/Stuffed-Bell-Peppers-V2.jpg" alt="" />
-          </div>
-          <div className="homepageRecipe">
-            <h2>Stuffed Bell Peppers</h2>
-            <img src="public/images/Stuffed-Bell-Peppers-V2.jpg" alt="" />
-          </div>
-          <div className="homepageRecipe">
-            <h2>Stuffed Bell Peppers</h2>
-            <img src="public/images/Stuffed-Bell-Peppers-V2.jpg" alt="" />
-          </div>
-          <div className="homepageRecipe">
-            <h2>Stuffed Bell Peppers</h2>
-            <img src="public/images/Stuffed-Bell-Peppers-V2.jpg" alt="" />
-          </div>
-          <div className="homepageRecipe">
-            <h2>Stuffed Bell Peppers</h2>
-            <img src="public/images/Stuffed-Bell-Peppers-V2.jpg" alt="" />
-          </div>
         </div>
       </main>
     </div>

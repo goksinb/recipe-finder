@@ -2,20 +2,21 @@
   display: flex;
   flex-direction: column;
   margin: 0 auto;
-  height: 100vh;
+  min-height: 100vh; /* instead of height */
 }
 
 #recipe-image img {
   height: auto;
-  width: 300px;
+  width: 500px;
 }
 
 .recipe {
   display: flex;
   flex-direction: column;
-  margin: 4rem 25rem;
-  border: 2px solid black;
+  margin: 3rem 13rem;
   padding: 1rem 3rem;
+  border-radius: 5px;
+  background-color: rgb(255, 255, 255);
 }
 
 .recipe-container {
