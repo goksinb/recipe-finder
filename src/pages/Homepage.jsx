@@ -71,7 +71,7 @@ function Homepage() {
           />
           <button type="submit">Search</button>
         </form>
-        <p className="ingredientTitle">Recipes with {searchTerm}</p>
+
         <div className="recipes">
           {searchTerm && (
             <>

@@ -3,23 +3,27 @@
   flex-direction: column;
   margin: 0 auto;
   min-height: 100vh; /* instead of height */
-}
+  a {
+    color: rgb(252, 172, 0);
+    text-decoration: none;
+  }
 
-#recipe-image img {
-  height: auto;
-  width: 500px;
-}
+  #recipe-image img {
+    height: auto;
+    width: 500px;
+  }
 
-.recipe {
-  display: flex;
-  flex-direction: column;
-  margin: 3rem 13rem;
-  padding: 1rem 3rem;
-  border-radius: 5px;
-  background-color: rgb(255, 255, 255);
-}
+  .recipe {
+    display: flex;
+    flex-direction: column;
+    margin: 3rem 13rem;
+    padding: 1rem 3rem;
+    border-radius: 5px;
+    background-color: rgb(255, 255, 255);
+  }
 
-.recipe-container {
-  display: flex;
-  flex-direction: column;
+  .recipe-container {
+    display: flex;
+    flex-direction: column;
+  }
 }
