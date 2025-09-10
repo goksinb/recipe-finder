@@ -1,50 +1,66 @@
+// src/pages/Homepage.js
 import {useState, useEffect} from "react";
+import {Link, useLocation, useNavigate} from "react-router-dom";
 import getRecipes from "../API/getRecipes";
-import {Link} from "react-router-dom";
 import "../styles/Homepage.css";
 import Header from "../components/header";
-/* import Footer from "../components/footer"; */
+import BackgroundVideo from "../components/BackgroundVideo";
 
 function Homepage() {
   const [recipes, setRecipes] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
 
-  useEffect(() => {
-    if (!searchTerm.trim()) return;
+  const location = useLocation();
+  const navigate = useNavigate();
 
-    const fetchRecipes = async () => {
-      try {
-        console.log("Fetching recipes for:", searchTerm); // Debug log
-        const data = await getRecipes(searchTerm);
-        console.log("Fetched data:", data); // Debug log
-        if (Array.isArray(data)) {
-          setRecipes(data);
-        } else {
-          console.error("Unexpected data format:", data);
+  // If user came here with { state: { reset: true } }, clear UI and remove the flag
+  useEffect(
+    function () {
+      if (location.state && location.state.reset) {
+        setSearchTerm("");
+        setRecipes([]);
+        // remove the state so refreshes or other nav do not keep resetting
+        navigate(".", {replace: true, state: null});
+      }
+    },
+    [location.state, navigate]
+  );
+
+  useEffect(
+    function () {
+      if (!searchTerm.trim()) return;
+
+      async function fetchRecipes() {
+        try {
+          const data = await getRecipes(searchTerm);
+          if (Array.isArray(data)) {
+            setRecipes(data);
+          } else {
+            setRecipes([]);
+          }
+        } catch (error) {
+          console.error("Error fetching recipes:", error);
           setRecipes([]);
         }
-      } catch (error) {
-        console.error("Error fetching recipes:", error);
-        setRecipes([]);
       }
-    };
 
-    fetchRecipes();
-  }, [searchTerm]);
+      fetchRecipes();
+    },
+    [searchTerm]
+  );
 
-  const handleSearch = (e) => {
+  function handleSearch(e) {
     e.preventDefault();
     const input = e.target.elements.search.value.trim();
     if (input) {
-      console.log("User searched for:", input); // Debug log
       setSearchTerm(input);
     }
-  };
+  }
 
   return (
-    <div>
+    <div className={searchTerm ? "homepage white-bg" : "homepage"}>
+      {!searchTerm && <BackgroundVideo />}
       <Header />
-      {/*       <Footer /> */}
 
       <main>
         <form onSubmit={handleSearch}>
@@ -55,47 +71,27 @@ function Homepage() {
           />
           <button type="submit">Search</button>
         </form>
-
+        <p className="ingredientTitle">Recipes with {searchTerm}</p>
         <div className="recipes">
-          {!searchTerm ? ( // if nothing is searched
+          {searchTerm && (
             <>
-              <p>Type some ingredients above to find recipes 🍲</p>
-
-              {/* Show random recipes only when no search */}
-              <div className="randomRecipes">
-                <div className="homepageRecipe">
-                  <h2>Stuffed Bell Peppers</h2>
-                  <img src="public/images/Stuffed-Bell-Peppers-V2.jpg" alt="" />
-                </div>
-                <div className="homepageRecipe">
-                  <h2>Beef Stroganoff</h2>
-                  <img
-                    src="public/images/One-Pot-Beef-and-Mushroom-Stroganoff-V1.jpg"
-                    alt=""
-                  />
-                </div>
-                <div className="homepageRecipe">
-                  <h2>Easy Taco Soup</h2>
-                  <img src="public/images/Taco-Soup-V2.jpg" alt="" />
-                </div>
-              </div>
-            </>
-          ) : (
-            <>
-              <h1>Recipes with {searchTerm}</h1>
               {recipes.length > 0 ? (
-                recipes.map((recipe) => (
-                  <div className="recipeList" key={recipe.id}>
-                    <Link to={`/recipe/${recipe.id}`}>
-                      <h3>{recipe.title}</h3>
-                    </Link>
-                    <img
-                      src={recipe.image}
-                      alt={recipe.title}
-                      style={{width: "150px"}}
-                    />
-                  </div>
-                ))
+                recipes.map(function (recipe) {
+                  return (
+                    <div className="recipeList" key={recipe.id}>
+                      <div className="recipeContainer">
+                        <Link to={`/recipe/${recipe.id}`}>
+                          <h3>{recipe.title}</h3>
+                        </Link>
+                        <img
+                          src={recipe.image}
+                          alt={recipe.title}
+                          style={{width: "150px"}}
+                        />
+                      </div>
+                    </div>
+                  );
+                })
               ) : (
                 <p>No recipes found.</p>
               )}
