@@ -29,3 +29,14 @@ header {
     text-decoration: none;
   }
 }
+@media (max-width: 768px) {
+  body {
+    font-size: 0.4rem;
+    margin: 0 auto;
+  }
+
+  header {
+    font-size: 0.9rem;
+    margin: 0 auto;
+  }
+}
