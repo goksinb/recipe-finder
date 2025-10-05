@@ -16,7 +16,7 @@ function Header() {
           <Link to="/" state={{reset: true}}>
             Homepage
           </Link>
-          <Link to="/recipes"> Recipes</Link>
+          {/*           <Link to="/recipes"> Recipes</Link> */}
           <Link to="/about"> About</Link>
         </div>
       </nav>

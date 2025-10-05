@@ -10,31 +10,28 @@ export default function About({appName, dataSource, contactEmail}) {
         <div className="mx-auto max-w-3xl px-4 py-10">
           {/* Title */}
           <h1 className="text-3xl font-semibold tracking-tight">
-            About {appName}
+            About Fridge Feast
           </h1>
           <p className="mt-3 text-neutral-700">
-            {appName} is a simple tool that helps you answer one question: what
-            can I cook with what I have at home?
+            Fridge Feast is a simple tool that helps you answer one question:
+            what can I cook with what I have at home?
           </p>
           {/* How to use */}
           <section aria-labelledby="how" className="mt-10">
             <h2 id="how" className="text-xl font-semibold">
               How it works
             </h2>
-            <ol className="mt-3 space-y-3 text-neutral-700">
+
+            <ul>
               <li>
-                <span className="font-medium">1.</span> Type a few ingredients.
+                <span className="font-medium"></span> Type a few ingredients.
                 Tomato, pasta, eggs, and so on.
               </li>
               <li>
-                <span className="font-medium">2.</span> Use the filters to match
-                your needs. Diet, time, and difficulty.
+                <span className="font-medium"></span> Open a recipe and follow
+                the steps.
               </li>
-              <li>
-                <span className="font-medium">3.</span> Open a recipe and follow
-                the steps. Swap tips are included when possible.
-              </li>
-            </ol>
+            </ul>
           </section>
           {/* Features */}
           <section aria-labelledby="features" className="mt-10">
@@ -42,12 +39,9 @@ export default function About({appName, dataSource, contactEmail}) {
               Features
             </h2>
             <ul className="mt-3 list-inside list-disc text-neutral-700">
-              <li>
-                Search by ingredients with light tolerance for common typos
-              </li>
-              <li>Quick filters for diet and total time</li>
+              <li>Search by multiple ingredients</li>
+
               <li>Clean steps with notes and simple measurements</li>
-              <li>Save favorites in your browser</li>
             </ul>
           </section>
           {/* Data and privacy */}
@@ -56,8 +50,7 @@ export default function About({appName, dataSource, contactEmail}) {
               Data and privacy
             </h2>
             <p className="mt-3 text-neutral-700">
-              Recipes come from {dataSource}. Saved items live only in your
-              browser using localStorage. No account is required.
+              All the recipes come from Spoonacular API.
             </p>
           </section>
           {/* Contact */}
@@ -68,11 +61,12 @@ export default function About({appName, dataSource, contactEmail}) {
             <p className="mt-3 text-neutral-700">
               Send feedback to{" "}
               <a className="underline" href={`mailto:${contactEmail}`}>
-                {contactEmail}
+                {`info@fridgefeast.com`}
               </a>
               .
             </p>
           </section>
+
           {/* Small note so users know what to expect */}
           <p className="mt-12 text-sm text-neutral-500">
             This page explains the app at a glance. You can find tips inside
