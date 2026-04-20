@@ -1,0 +1,42 @@
+.lobster-regular {
+  font-family: "Lobster", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.nav-links {
+  display: flex;
+  gap: 1rem;
+}
+
+header {
+  font-family: "Lobster", sans-serif;
+  font-size: 25px;
+  display: flex;
+  flex-direction: column;
+  background-color: none;
+  padding: 20px 20px;
+  color: rgb(26, 26, 26);
+
+  a {
+    color: rgb(252, 172, 0);
+    text-decoration: none;
+  }
+}
+@media (max-width: 768px) {
+  body {
+    font-size: 0.4rem;
+    margin: 0 auto;
+  }
+
+  header {
+    font-size: 0.9rem;
+    margin: 0 auto;
+  }
+}
