@@ -1,5 +1,7 @@
+import.meta.env.VITE_API_KEY;
+
 const getRecipeDetails = async (recipeId) => {
-  const apiKey = import.meta.env.API_KEY;
+  const apiKey = import.meta.env.VITE_API_KEY;
 
   const url = `https://api.spoonacular.com/recipes/${recipeId}/information?apiKey=${apiKey}`;
 

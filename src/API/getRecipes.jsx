@@ -1,5 +1,5 @@
 const getRecipes = async (ingredients) => {
-  const apiKey = import.meta.env.API_KEY;
+  const apiKey = import.meta.env.VITE_API_KEY;
   const url = `https://api.spoonacular.com/recipes/findByIngredients?ingredients=${ingredients}&apiKey=${apiKey}&number=10`;
 
   try {
